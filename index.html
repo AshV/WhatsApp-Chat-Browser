@@ -1,0 +1,128 @@
+﻿<!doctype html>
+
+<!--[if lt IE 9]>
+<html lang="en" class="ie ie-legacy">
+<![endif]-->
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Wutsapp - Funny chat conversations and text messages</title>
+		<meta name="description" content="WUTsapp is a collection of funny chat conversations and text messages.">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- favicons -->
+		<link rel="apple-touch-icon" sizes="57x57" href="http://wutsapp.net/images/apple-touch-icon-57x57.png?v=5">
+		<link rel="apple-touch-icon" sizes="60x60" href="http://wutsapp.net/images/apple-touch-icon-60x60.png?v=5">
+		<link rel="apple-touch-icon" sizes="72x72" href="http://wutsapp.net/images/apple-touch-icon-72x72.png?v=5">
+		<link rel="apple-touch-icon" sizes="76x76" href="http://wutsapp.net/images/apple-touch-icon-76x76.png?v=5">
+		<link rel="apple-touch-icon" sizes="114x114" href="http://wutsapp.net/images/apple-touch-icon-114x114.png?v=5">
+		<link rel="apple-touch-icon" sizes="120x120" href="http://wutsapp.net/images/apple-touch-icon-120x120.png?v=5">
+		<link rel="apple-touch-icon" sizes="144x144" href="http://wutsapp.net/images/apple-touch-icon-144x144.png?v=5">
+		<link rel="apple-touch-icon" sizes="152x152" href="http://wutsapp.net/images/apple-touch-icon-152x152.png?v=5">
+		<link rel="apple-touch-icon" sizes="180x180" href="http://wutsapp.net/images/apple-touch-icon-180x180.png?v=5">
+		<link rel="icon" type="image/png" href="http://wutsapp.net/images/favicon-32x32.png?v=5" sizes="32x32">
+		<link rel="icon" type="image/png" href="http://wutsapp.net/images/android-chrome-192x192.png?v=5" sizes="192x192">
+		<link rel="icon" type="image/png" href="http://wutsapp.net/images/favicon-96x96.png?v=5" sizes="96x96">
+		<link rel="icon" type="image/png" href="http://wutsapp.net/images/favicon-16x16.png?v=5" sizes="16x16">
+		<link rel="manifest" href="http://wutsapp.net/images/manifest.json?v=5">
+		<link rel="shortcut icon" href="http://wutsapp.net/images/favicon.ico?v=5">
+		<meta name="msapplication-TileColor" content="#075e54">
+		<meta name="msapplication-TileImage" content="http://wutsapp.net/images/mstile-144x144.png?v=5">
+		<meta name="msapplication-config" content="http://wutsapp.net/images/browserconfig.xml?v=5">
+		<meta name="theme-color" content="#075e54">
+
+		<!-- facebook -->
+		<meta property="og:url" content="http://www.wutsapp.net" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="WUTsapp" />
+		<meta property="og:description" content="WUTsapp is a collection of funny chat conversations and text messages." />
+		<meta property="og:image" content="http://www.wutsapp.net/images/dist/fb.jpg?v=3" />
+
+		<!-- twitter card -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="http://www.wutsapp.net">
+		<meta name="twitter:creator" content="@vlrprbttst">
+		<meta name="twitter:title" content="WUTsapp">
+		<meta name="twitter:description" content="WUTsapp is a collection of funny chat conversations and text messages.">
+		<meta name="twitter:image" content="http://www.wutsapp.net/images/dist/twt.jpg?v=3">
+
+		<link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.1.2/css/material-design-iconic-font.min.css">
+		<base href="/">
+	</head>
+
+	<body ng-app="wutsapp">
+		<div id="preloader" ng-show="!loaded">
+			<div id="status"></div>
+		</div>
+
+		<div class="mobile-alert">
+			<div class="mobile-alert-msg">
+
+			</div>
+		</div>
+
+		<div class="page" ng-controller="PageCtrl" ng-cloak ng-class="deviceModel">
+			<header>
+				<div class="sharingiscaring">
+					<a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=WUTsapp%20is%20a%20collection%20of%20funny%20chat%20conversations" data-size="small" style="padding:0 5px 0 0"> Tweet</a>
+					<div class="fb-like" data-href="http://www.wutsapp.net" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+				</div>
+				<div id="fb-root"></div>
+				<div class="logo">
+					<img src="images/dist/logo.png" alt="wutsapp" />
+					<p>
+						WUTsapp is a collection of funny chat conversations and text messages.
+					</p>
+				</div>
+				<a class="new-link" ng-href="{{newChatUrl}}">
+				<div class="new">
+					<i class="zmdi zmdi-refresh-alt"></i> new conversation
+				</div> </a>
+			</header>
+			<div class="phone">
+				<div class="wa-container">
+					<div class="status-bar">
+						<div class="time">
+							{{::deviceTimestamp | date : "shortTime"}}
+						</div>
+						<div class="battery">
+							<i class="zmdi zmdi-battery"></i>
+						</div>
+						<div class="network">
+							<i class="zmdi zmdi-network"></i>
+						</div>
+						<div class="wifi">
+							<i class="zmdi zmdi-wifi-alt-2"></i>
+						</div>
+						<div class="star">
+							<i class="zmdi zmdi-star"></i>
+						</div>
+					</div>
+					<div class="wrapperchat">
+						<route-loading-indicator class="chat-loader"></route-loading-indicator>
+						<div ng-if='!isRouteLoading' ng-view class="chat-root"></div>
+					</div>
+					<div class="bottom-bar">
+						<div class="triangle">
+							<i class="zmdi zmdi-triangle-up"></i>
+						</div>
+						<div>
+							<i class="zmdi zmdi-circle-o"></i>
+						</div>
+						<div>
+							<i class="zmdi zmdi-square-o"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+			Handcrafted in Rome by <a href="http://valeriopierbattista.com">Valerio Pierbattista</a> and <a href="https://www.linkedin.com/in/patriziomunzi">Patrizio Munzi</a>.
+			View source, credits and contribute on <i class="zmdi zmdi-github"></i><a href="https://github.com/vlrprbttst/wutsapp">Github</a>.
+		</footer>
+		<script src="js/build/require.js" data-main="js/build/main.js"></script>
+	</body>
+</html>
