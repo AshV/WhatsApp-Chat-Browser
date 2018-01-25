@@ -13,6 +13,14 @@ namespace TextChatParser
     {
         static void Main(string[] args)
         {
+          
+
+
+
+        }
+
+        public static void Parser()
+        {
             var allMessages = new List<Message>();
             var lines = File.ReadAllLines("chat.txt");
 
@@ -32,8 +40,16 @@ namespace TextChatParser
                     StaticMessage.Time = line.Substring(0, betweenTimeAndSender).Trim();
                     var senderAndBody = line.Substring(betweenTimeAndSender);
                     var betweenSenderAndBody = senderAndBody.IndexOf(":");
-                    StaticMessage.Sender = senderAndBody.Substring(1, betweenSenderAndBody - 1).Trim();
-                    StaticMessage.Body = senderAndBody.Substring(betweenSenderAndBody + 1).Trim();
+                    if (betweenSenderAndBody == -1)
+                    {
+                        StaticMessage.IsInfo = true;
+                        StaticMessage.Body = line.Substring(betweenTimeAndSender + 2);
+                    }
+                    else
+                    {
+                        StaticMessage.Sender = senderAndBody.Substring(1, betweenSenderAndBody - 1).Trim();
+                        StaticMessage.Body = senderAndBody.Substring(betweenSenderAndBody + 1).Trim();
+                    }
                 }
                 else
                     StaticMessage.Body += Environment.NewLine + line;
@@ -43,9 +59,6 @@ namespace TextChatParser
             allMessages.RemoveAt(0);
 
             Console.WriteLine(count);
-
-
-
 
         }
     }
@@ -69,6 +82,7 @@ namespace TextChatParser
             };
         }
 
+        public static bool IsInfo { get; set; }
         public static string Time { get; set; }
         public static string Sender { get; set; }
         public static string Body { get; set; }
@@ -76,10 +90,9 @@ namespace TextChatParser
 
     public class Message
     {
-
+        public static bool IsInfo { get; set; }
         public string Time { get; set; }
         public string Sender { get; set; }
         public string Body { get; set; }
     }
-
 }
