@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -13,10 +15,8 @@ namespace TextChatParser
     {
         static void Main(string[] args)
         {
-            new Rootobject
-            {
-                Property1 = new Class1[]
-                {
+            var json = new Class1[]
+                      {
                   new Class1
                   {
                       name="Chaitaan ka naam",
@@ -35,11 +35,21 @@ namespace TextChatParser
                               image="DSLR nahi h ape paas"
                           }
                       }
-                  }
+
               }
-            };
+                  };
 
 
+            JsonSerializer serializer = new JsonSerializer();
+            serializer.Converters.Add(new JavaScriptDateTimeConverter());
+            serializer.NullValueHandling = NullValueHandling.Ignore;
+
+            using (StreamWriter sw = new StreamWriter(@"json.json"))
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                serializer.Serialize(writer, json);
+                // {"ExpiryDate":new Date(1230375600000),"Price":0}
+            }
 
 
         }

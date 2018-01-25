@@ -1,24 +1,16 @@
-[{
-    "name": "asus-anus",
+[
+  {
+    "name": "Chaitaan ka naam",
     "user": {
-      "name": "Joey",
-      "status": "online now",
-      "image": "https://s3.amazonaws.com/uifaces/faces/twitter/Chakintosh/128.jpg"
+      "name": "User Naav",
+      "status": "zinda",
+      "image": "khichta abhi ka abhi"
     },
     "messages": [
       {
-        "text": "Hope i didn't wake you guys up before!",
-        "you": true
-      },
-      {
-        "text": "You didn't! we're laying in bed. dad's playing with my anus."
-      },
-      {
-        "image": "http://i.imgur.com/t7ZHW0q.png",
-        "you": true
-      },
-      {
-        "text": "My asus!!! my laptop!! ah!"
+        "text": "maisej ka text",
+        "you": true,
+        "image": "DSLR nahi h ape paas"
       }
     ]
   }
