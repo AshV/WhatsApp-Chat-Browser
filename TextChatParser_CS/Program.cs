@@ -12,6 +12,7 @@ namespace TextChatParser
     {
         static void Main(string[] args)
         {
+            var allMessages = new List<Message>();
             var lines = File.ReadAllLines("chat.txt");
 
             Console.WriteLine("All Lines Count : " + lines.Length);
@@ -20,23 +21,30 @@ namespace TextChatParser
 
             Console.WriteLine(regexStartWithDate.Match(lines[0]).Success);
             int count = 0;
-            Array.ForEach(lines, l => { if (regexStartWithDate.Match(l).Success) count++; });
+            Array.ForEach(lines, line =>
+            {
+                var time = string.Empty;
+                var sender = string.Empty;
+                var body = string.Empty;
+                if (regexStartWithDate.Match(line).Success)
+                {
+                    var betweenTimeAndSender = line.IndexOf("-");
+                    time = line.Substring(0, betweenTimeAndSender).Trim();
+                    var senderAndBody = line.Substring(betweenTimeAndSender);
+                    var betweenSenderAndBody = senderAndBody.IndexOf(":");
+                    sender = senderAndBody.Substring(1, betweenSenderAndBody - 1).Trim();
+                    body = senderAndBody.Substring(betweenSenderAndBody + 1).Trim();
+                }
+                else
+                {
+                    body += Environment.NewLine + line;
+                }
+            });
 
             Console.WriteLine(count);
-
-            // 12/14/16, 11:21 - N Pandey: 💥तुरंत निकाले ये 4 एप्प मोबाइल से
-
-            var line = lines[0];
-
-            var message = new Message();
-
-            var betweenTimeAndSender = line.IndexOf("-");
-            message.Time = line.Substring(0, betweenTimeAndSender).Trim();
-            var senderAndBody = line.Substring(betweenTimeAndSender);
-            var betweenSenderAndBody = senderAndBody.IndexOf(":");
-            message.Sender = senderAndBody.Substring(1, betweenSenderAndBody-1).Trim();
-            message.Body = senderAndBody.Substring(betweenSenderAndBody+1).Trim();
         }
+
+
     }
 
     class Message
