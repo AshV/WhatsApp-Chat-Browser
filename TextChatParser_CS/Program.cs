@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -23,34 +24,62 @@ namespace TextChatParser
             int count = 0;
             Array.ForEach(lines, line =>
             {
-                var time = string.Empty;
-                var sender = string.Empty;
-                var body = string.Empty;
                 if (regexStartWithDate.Match(line).Success)
                 {
+                    allMessages.Add(StaticMessage.LastMesage());
+                    StaticMessage.ReInitialize();
                     var betweenTimeAndSender = line.IndexOf("-");
-                    time = line.Substring(0, betweenTimeAndSender).Trim();
+                    StaticMessage.Time = line.Substring(0, betweenTimeAndSender).Trim();
                     var senderAndBody = line.Substring(betweenTimeAndSender);
                     var betweenSenderAndBody = senderAndBody.IndexOf(":");
-                    sender = senderAndBody.Substring(1, betweenSenderAndBody - 1).Trim();
-                    body = senderAndBody.Substring(betweenSenderAndBody + 1).Trim();
+                    StaticMessage.Sender = senderAndBody.Substring(1, betweenSenderAndBody - 1).Trim();
+                    StaticMessage.Body = senderAndBody.Substring(betweenSenderAndBody + 1).Trim();
                 }
                 else
-                {
-                    body += Environment.NewLine + line;
-                }
+                    StaticMessage.Body += Environment.NewLine + line;
+
             });
+            allMessages.Add(StaticMessage.LastMesage());
+            allMessages.RemoveAt(0);
 
             Console.WriteLine(count);
+
+
+
+
         }
-
-
     }
 
-    class Message
+    static class StaticMessage
     {
+        public static void ReInitialize()
+        {
+            Time = string.Empty;
+            Sender = string.Empty;
+            Body = string.Empty;
+        }
+
+        public static Message LastMesage()
+        {
+            return new Message
+            {
+                Time = Time,
+                Sender = Sender,
+                Body = Body
+            };
+        }
+
+        public static string Time { get; set; }
+        public static string Sender { get; set; }
+        public static string Body { get; set; }
+    }
+
+    public class Message
+    {
+
         public string Time { get; set; }
         public string Sender { get; set; }
         public string Body { get; set; }
     }
+
 }
