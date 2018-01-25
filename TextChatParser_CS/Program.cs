@@ -23,6 +23,26 @@ namespace TextChatParser
             Array.ForEach(lines, l => { if (regexStartWithDate.Match(l).Success) count++; });
 
             Console.WriteLine(count);
+
+            // 12/14/16, 11:21 - N Pandey: 💥तुरंत निकाले ये 4 एप्प मोबाइल से
+
+            var line = lines[0];
+
+            var message = new Message();
+
+            var betweenTimeAndSender = line.IndexOf("-");
+            message.Time = line.Substring(0, betweenTimeAndSender).Trim();
+            var senderAndBody = line.Substring(betweenTimeAndSender);
+            var betweenSenderAndBody = senderAndBody.IndexOf(":");
+            message.Sender = senderAndBody.Substring(1, betweenSenderAndBody-1).Trim();
+            message.Body = senderAndBody.Substring(betweenSenderAndBody+1).Trim();
         }
+    }
+
+    class Message
+    {
+        public string Time { get; set; }
+        public string Sender { get; set; }
+        public string Body { get; set; }
     }
 }
