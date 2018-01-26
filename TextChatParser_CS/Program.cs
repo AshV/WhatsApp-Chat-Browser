@@ -32,7 +32,7 @@ namespace TextChatParser
                           {
                               text="maisej ka text",
                               you=true,
-                              image="DSLR nahi h ape paas"
+                              image="DSLR nahi h apne paas"
                           }
                       }
 
