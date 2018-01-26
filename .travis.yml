@@ -1,2 +1,3 @@
 language: csharp
 solution: WhatsApp-Chat-Browser.sln
+mono: latest
