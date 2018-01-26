@@ -3,27 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WhatsApp-Chat-Browser", ".", "{EFB8CAD2-CABA-4CBF-9584-BCDBF289B57C}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_4804"
-		Debug.AspNetCompiler.PhysicalPath = "..\WhatsApp-Chat-Browser\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_4804\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_4804"
-		Release.AspNetCompiler.PhysicalPath = "..\WhatsApp-Chat-Browser\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_4804\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "4804"
-		SlnRelativePath = "..\WhatsApp-Chat-Browser\"
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextChatParser", "TextChatParser_CS\TextChatParser.csproj", "{785E43CC-A6B4-4C92-9A14-28B97566F261}"
 EndProject
 Global
@@ -32,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EFB8CAD2-CABA-4CBF-9584-BCDBF289B57C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EFB8CAD2-CABA-4CBF-9584-BCDBF289B57C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EFB8CAD2-CABA-4CBF-9584-BCDBF289B57C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{EFB8CAD2-CABA-4CBF-9584-BCDBF289B57C}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{785E43CC-A6B4-4C92-9A14-28B97566F261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{785E43CC-A6B4-4C92-9A14-28B97566F261}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{785E43CC-A6B4-4C92-9A14-28B97566F261}.Release|Any CPU.ActiveCfg = Release|Any CPU
