@@ -18,7 +18,7 @@ public class User
     public string image { get; set; }
 }
 
-public class Message
+public  class Message
 {
     public string text { get; set; }
     public bool you { get; set; }

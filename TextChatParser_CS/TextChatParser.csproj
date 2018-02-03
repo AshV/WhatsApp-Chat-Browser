@@ -46,8 +46,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChatsModel.cs" />
+    <Compile Include="Parser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SingleMessage.cs" />
+    <Compile Include="StaticMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
